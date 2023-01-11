@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villagers</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <!-- Development version of VueJS -->
+  <!-- https://vuejs.org/guide/quick-start.html#using-vue-from-cdn -->
+  <script src="https://unpkg.com/vue@next"></script>
+  <!-- Axios for making HTTP requests.  -->
+  <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+
+  <!-- NOTE: the below script has a "defer" attribute. It will load only when page is ready -->
+  <!-- Custom JS -->
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+<!--   vue mounts on app -->
+  <main id="app"> 
+
+<!--     if page is loading, display loading gif. 'loading' is set to true by deafult as set in the js. after fetch happens, the load is set to false.  -->
+    <div v-if="loading" id="loader">
+      <!-- https://loading.io/  -->
+      <img src="load.gif">
+    </div>
+
+    <!-- 
+                Using VueJS to loop over all villagers using a for loop
+                Each one is represented by an image.
+                On click, VueJS opens opens the corresponding villager.
+                 -->
+    <nav id="villagers" v-if="villagers">
+      <img v-for="(villager, villagerKey) in villagers" :key="villager.name" class="menuItem"
+        @click="showVillager(villagerKey)" :src="villager['image_url']">
+    </nav>
+
+    <article id="villager" v-if="villager">
+
+      <!--
+                    In this banner, the text layout is flush with the bottom of the the image
+                    The text also uses a semi-transparent background so that it stands out better.
+                    Check out the corresponding CSS to see how its done.
+                    -->
+      <div class="banner">
+        <img class="logo" src="welcome.svg" />
+        <img :src="villager['image_url']">
+
+      </div>
+      <div class="widget">
+        <h1 class="text-center">
+          {{ villager.name }}
+
+
+        </h1>
+        <h3 class="quote-text">"{{ villager.quote }}"</h3>
+      </div>
+
+
+
+      <!--
+                    Flexbox is helpful here to lay out the director and producer widgets. 
+                    Each widget grows to fill available space but wraps when we run out of space.
+                    HTML Markup and corresponding CSS help to differentiate the data from its label. 
+                    -->
+      <div class="widgets">
+        <div class="widget personality">
+          <div class="label">Personality</div>
+          <div class="data">{{ villager.personality }}</div>
+
+        </div>
+        <div class="widget birthday">
+          <div class="label">Birthday</div>
+          <div class="data">{{ villager.birthday_month }} {{ villager.birthday_day }}
+          </div>
+        </div>
+      </div>
+
+      <!--
+                        Stats widgets are styled similarly to the traits area
+                    -->
+      <div class="widgets">
+        <div class="widget gender">
+          <div class="label">Gender</div>
+          <div class="data">{{ villager.gender }}</div>
+
+        </div>
+        <div class="widget species">
+          <div class="label">Species</div>
+          <div class="data">
+            {{ villager.species }}
+
+          </div>
+
+        </div>
+
+      </div>
+      </div>
+
+      <!--       <div id="credits">
+        This is a demo page to fetch and display data from an API. Created by <a href="https://nsitu.ca">Harold
+          Sikkema</a> in the context of Integrated Systems Design 2 in the <a
+          href="https://ixd.sheridancollege.ca/program.html">Interaction Design</a> program at <a
+          href="https://www.sheridancollege.ca/">Sheridan College.</a> Made with <a href="https://v3.vuejs.org/">Vue
+          3</a>. Data via the <a href="https://ghibliapi.herokuapp.com/">Studio Ghibli API</a>, fetched with <a
+          href="https://axios-http.com/">Axios HTTP Client</a>. RT logo via <a
+          href="https://www.rottentomatoes.com/">Rotten Tomatoes</a>. Fonts via <a
+          href="https://enterprise.monotype.com/en/family/exljbris/antona">Monotype</a>. Thanks to Hayao Miyazaki and <a
+          href="https://www.ghibli.jp/">Studio Ghibli</a> for all the magic.
+      </div> -->
+
+    </article>
+    <article id="welcome" v-if="!villager">
+      <img src="welcome.svg" />
+
+
+
+    </article>
+    </section>
+  </main>
+</body>
+
+</html>

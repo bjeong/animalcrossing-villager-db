@@ -1,0 +1,3 @@
+# GhibliVue
+This is a demo page to fetch and display data from an API. Created by [Harold Sikkema](https://nsitu.ca) in the context of the Systems Design course in the [Interaction Design](https://ixd.sheridancollege.ca/program.html) program at [Sheridan College.](https://www.sheridancollege.ca/) Made with [Vue 3](https://v3.vuejs.org/). Data via the [Studio Ghibli API](https://ghibliapi.herokuapp.com/), fetched with [Axios HTTP Client](https://axios-http.com/). RT logo via [Rotten Tomatoes](https://www.rottentomatoes.com/). Fonts via [Monotype](https://enterprise.monotype.com/en/family/exljbris/antona). Thanks to Hayao Miyazaki and [Studio Ghibli](https://www.ghibli.jp/) for all the magic.  
+ 

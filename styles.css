@@ -1,0 +1,250 @@
+@font-face{
+  font-family: 'Maplestory OTF Light';
+  src: url("fonts/Maplestory\ OTF\ Light.otf") format("opentype");
+
+}
+
+body{ 
+    margin: 0; 
+  font-family: 'Maplestory OTF Light';
+}
+* { box-sizing: border-box; }
+
+main { 
+    display: flex; 
+  height: 100vh;
+    background-image: url("acleaf.jpg");
+   
+}
+
+main nav { width: 45vw; }
+main article{ width: 55vw; }
+
+
+/* the navigation is also a flex container but is has wrap enabled. 
+it also has some justificaiton applied to the images. */
+nav{ 
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+    align-content: flex-start; 
+
+  /*adding scrollbox to keep the site clean*/
+  overflow: scroll;
+  width: 100vw;
+  height: 100vh;
+  padding: 1%;
+
+/* 
+  background-color: #e9f4ec; */
+      background-image: url("nook.jpg");
+  background-size: cover;
+  
+} 
+
+/* Scale the menuItems in a responsive way */
+nav .menuItem{  
+    padding: 1.8%;
+    width: 10%;
+    height: auto;
+    cursor: pointer;
+} 
+@media (max-width: 900px) { nav .menuItem{   width: 14.2857%; }  }
+@media (max-width: 600px) { nav .menuItem{   width: 16.667%; }  }
+
+/*add hover colors to keep track of pointer easier*/
+nav .menuItem:hover{
+background-color: #96cfa5;
+  border-radius: 20px;
+  opacity: .8;
+}
+
+/* scrollbar code */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey; 
+  border-radius: 10px;
+  background: #eaffe5;
+}
+ 
+/* handle */
+::-webkit-scrollbar-thumb {
+  background: #5bbc48;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #418433; 
+}
+
+
+.text-center{
+  font-size: 3rem;
+color: #936303;
+  text-align:center;
+}
+
+.quote-text{
+   text-align:center;
+/*   background: #e2ae69; */
+     color: black;
+  padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+  font-size: 1.6rem;
+  opacity: .8;
+  background-color: rgba(98, 120, 152, .3);
+}
+
+#loader {  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 30vw; 
+    height: 100vh;
+} 
+
+
+/* On the welcome/ landing area, the content is fully centered. */
+#welcome {  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+} 
+
+#welcome img{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.3));
+}
+
+
+#welcome span{
+  display: flex;
+  text-align: center;
+}
+
+/* The banner div has a relative position. 
+This allows us to position the text inside it absolutely.
+While also maintaining an image below the text.  */
+#villager .banner{
+    position: relative;
+    margin: 5rem 5rem 0rem 5rem;
+  height: 40vh;
+
+}
+
+#villager .banner img{
+max-height: 450px;
+max-width: 450px;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+    display:block; 
+  margin-bottom: -200px;
+  
+
+}
+
+/* keep logo in top right after villager is selected */
+.logo{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+
+#villager .banner h2{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #936303;
+/*     background:  #e2ae69; */
+
+    width: 100%;
+    margin: 0;
+
+    font-size: 3em;
+  font-family: 'Maplestory OTF Light';
+
+}
+
+/* Styling for the description text */
+#villager .details{
+    font-size: 1.3rem;
+      font-family: 'Maplestory OTF Light';
+  
+
+} 
+
+/* Bold the first line only. */
+/* See also: https://developer.mozilla.org/en-US/docs/Web/CSS/::first-line  */
+#villager .details ::first-line{
+   font-family: 'Maplestory OTF Light';
+}
+
+/* A flex container for "widgets"*/
+#villager .widgets{
+    margin: 1rem 5rem;
+    display: flex; 
+    flex-flow: wrap;
+    text-align: center; 
+    gap: 1rem;  /* The space between flex items. */
+}
+
+
+#villager .widget{ 
+    padding: 1rem;
+    flex-grow: 1;
+  border-radius: 20px;
+
+}
+#villager  .data{
+    font-size: 1.6em;
+   font-family: 'Maplestory OTF Light';
+}
+
+/* Some widgets have different colours. */
+#villager  .personality { 
+    color: #fff;
+    background:rgba(8, 60, 152, .6);
+    width: 5vh;
+
+}
+#villager .birthday{ 
+    color: #fff;
+    background: rgba(200, 120, 152, .6);
+    width: 5vh;
+
+}
+
+#villager .gender{ 
+    color: #ffffff;
+    background:rgba(60, 8, 152, .6);
+    width: 5vh;
+
+}
+
+#villager .species{ 
+    color: #fff;
+    background:rgba(17, 114, 74, .6);
+    width: 5vh;
+  
+}
+
+#credits{
+    margin: 5rem;
+}
+
